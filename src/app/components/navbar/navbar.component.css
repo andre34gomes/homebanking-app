@@ -85,6 +85,11 @@ nav .profile-area .profile-photo{
   overflow: hidden;
 }
 
+nav .profile-area .profile h5{
+  margin-top: 13px;
+  font-weight: 600;
+}
+
 nav .profile-area button{
   display: none;
 }

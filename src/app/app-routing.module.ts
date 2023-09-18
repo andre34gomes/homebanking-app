@@ -7,7 +7,7 @@ import {FundsComponent} from "./funds/funds.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: LoginComponent },
   { path: 'transactions', component: TransactionsComponent },
