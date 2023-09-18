@@ -14,7 +14,7 @@ nav .container {
 }
 
 nav img.logo {
-  width: 7rem;
+  width: 18rem;
 }
 
 nav .search-bar {
@@ -56,7 +56,7 @@ nav .profile-area .theme-btn {
   cursor: pointer;
 }
 
-nav .profile-area .theme-btn span{
+nav .profile-area .theme-btn mat-icon{
   width: 50%;
   height: 100%;
   display: flex;
