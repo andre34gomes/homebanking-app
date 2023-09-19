@@ -15,6 +15,8 @@
   --color-success-light: rgba(34, 202, 75, 0.2);
   --color-danger-light: rgba(255, 67, 54, 0.2);
   --color-purple-light: rgba(160, 99, 245, 0.2);
+  --color-dark-light: rgba(236, 236, 236, 1);
+
 
   --card-padding: 1.6rem;
   --padding-1: 1rem;
@@ -23,6 +25,8 @@
   --card-border-radius: 1.6rem;
   --border-radius-1: 1rem;
   --border-radius-2: 6px;
+
+  --box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
 }
 
 /* dark theme variables */
@@ -157,6 +161,10 @@ small {
 
 .bg-success-light {
   background: var(--color-success-light);
+}
+
+.bg-dark-light {
+  background: var(--color-dark-light);
 }
 
 
