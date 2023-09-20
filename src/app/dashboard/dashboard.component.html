@@ -312,79 +312,30 @@
           <mat-icon class="material-icons-sharp">chevron_right</mat-icon>
         </a>
       </div>
-      <div class="investment">
-        <img src="./assets/uniliver.png">
-        <h4>Unilever</h4>
+      <div class="investment" *ngFor="let investment of investments">
+        <img [src]="investment.imageSrc">
+        <h4>{{ investment.companyName }}</h4>
         <div class="date-time">
-          <p>7 Nov, 2021</p>
-          <small class="text-muted">9:14pm</small>
+          <p>{{ investment.date }}</p>
+          <small class="text-muted">{{ investment.time }}</small>
         </div>
         <div class="bonds">
-          <p>1402</p>
+          <p>{{ investment.bonds }}</p>
           <small class="text-muted">Bonds</small>
         </div>
         <div class="amount">
-          <h4>$20,033</h4>
-          <small class="danger">-4.27%</small>
-        </div>
-      </div>
-      <!-- END OF INVESTMENT -->
-
-      <div class="investment">
-        <img src="./assets/tesla.png">
-        <h4>Tesla</h4>
-        <div class="date-time">
-          <p>1 Dec, 2021</p>
-          <small class="text-muted">11:54am</small>
-        </div>
-        <div class="bonds">
-          <p>5377</p>
-          <small class="text-muted">Bonds</small>
-        </div>
-        <div class="amount">
-          <h4>$720,110</h4>
-          <small class="success">+38.27%</small>
-        </div>
-      </div>
-      <!-- END OF INVESTMENT -->
-
-      <div class="investment">
-        <img src="./assets/monster.png">
-        <h4>Monster</h4>
-        <div class="date-time">
-          <p>1 Dec, 2021</p>
-          <small class="text-muted">4:02pm</small>
-        </div>
-        <div class="bonds">
-          <p>700</p>
-          <small class="text-muted">Bonds</small>
-        </div>
-        <div class="amount">
-          <h4>$13,110</h4>
-          <small class="success">+7.27%</small>
-        </div>
-      </div>
-      <!-- END OF INVESTMENT -->
-
-      <div class="investment">
-        <img src="./assets/mcdonalds.png">
-        <h4>McDonalds</h4>
-        <div class="date-time">
-          <p>3 Dec, 2021</p>
-          <small class="text-muted">8:17pm</small>
-        </div>
-        <div class="bonds">
-          <p>5200</p>
-          <small class="text-muted">Bonds</small>
-        </div>
-        <div class="amount">
-          <h4>$78,030</h4>
-          <small class="danger">-1.02%</small>
+          <h4>{{ investment.amount }}</h4>
+          <small
+            class="{{ investment.changePercentage ? (investment.changePercentage > 0 ? 'success' : 'danger') : '' }}">
+            {{ (investment.changePercentage ? (investment.changePercentage > 0 ? '+' : '') : '') + investment.changePercentage }}
+            %
+          </small>
         </div>
       </div>
       <!-- END OF INVESTMENT -->
     </div>
     <!-- END OF INVESTMENTS -->
+
     <div class="recent-transactions">
       <div class="header">
         <h2>Recent Transactions</h2>
@@ -392,145 +343,31 @@
           <mat-icon class="material-icons-sharp">chevron_right</mat-icon>
         </a>
       </div>
-      <div class="transaction">
+      <div class="transaction" *ngFor="let transaction of firstSixTransactions">
         <div class="service">
-          <div class="icon bg-purple-light">
-            <mat-icon class="material-icons-sharp purple">headset_mic</mat-icon>
+          <div class="icon" [ngClass]="transaction.iconClass">
+            <mat-icon class="material-icons-sharp">{{ transaction.iconName }}</mat-icon>
           </div>
           <div class="details">
-            <h4>Music</h4>
-            <p>19.09.2023</p>
+            <h4>{{ transaction.category }}</h4>
+            <p>{{ transaction.date }}</p>
           </div>
         </div>
         <div class="card-details">
-          <div class="card bg-danger">
-            <img src="./assets/visa.png">
+          <div
+            [ngClass]="transaction.cardType === 'Credit Card Blue' ? 'card bg-primary' : (transaction.cardType === 'Credit Card Red' ? 'card bg-danger' : 'card bg-dark')">
+            <img [src]="transaction.cardImageSrc">
           </div>
           <div class="details">
-            <p>*2757</p>
-            <small class="text-muted">Credit Card</small>
+            <p>{{ transaction.cardNumber }}</p>
+            <small class="text-muted">{{ transaction.cardName }}</small>
           </div>
         </div>
-        <h4>-$20</h4>
-      </div>
-      <!-- END OF TRANSACTION -->
-      <div class="transaction">
-        <div class="service">
-          <div class="icon bg-purple-light">
-            <mat-icon class="material-icons-sharp purple">shopping_bag</mat-icon>
-          </div>
-          <div class="details">
-            <h4>Shopping</h4>
-            <p>10.09.2023</p>
-          </div>
-        </div>
-        <div class="card-details">
-          <div class="card bg-primary">
-            <img src="./assets/visa.png">
-          </div>
-          <div class="details">
-            <p>*1920</p>
-            <small class="text-muted">Credit Card</small>
-          </div>
-        </div>
-        <h4>-$799</h4>
-      </div>
-      <!-- END OF TRANSACTION -->
-
-
-      <div class="transaction">
-        <div class="service">
-          <div class="icon bg-success-light">
-            <mat-icon class="material-icons-sharp success">restaurant</mat-icon>
-          </div>
-          <div class="details">
-            <h4>Restaurant</h4>
-            <p>19.08.2023</p>
-          </div>
-        </div>
-        <div class="card-details">
-          <div class="card bg-dark">
-            <img src="./assets/master%20card.png">
-          </div>
-          <div class="details">
-            <p>*8273</p>
-            <small class="text-muted">Master Card</small>
-          </div>
-        </div>
-        <h4>-$50</h4>
-      </div>
-      <!-- END OF TRANSACTION -->
-
-
-      <div class="transaction">
-        <div class="service">
-          <div class="icon bg-danger-light">
-            <mat-icon class="material-icons-sharp danger">sports_esports</mat-icon>
-          </div>
-          <div class="details">
-            <h4>Games</h4>
-            <p>15.08.2023</p>
-          </div>
-        </div>
-        <div class="card-details">
-          <div class="card bg-danger">
-            <img src="./assets/visa.png">
-          </div>
-          <div class="details">
-            <p>*2757</p>
-            <small class="text-muted">Credit Card</small>
-          </div>
-        </div>
-        <h4>-$44</h4>
-      </div>
-      <!-- END OF TRANSACTION -->
-      <div class="transaction">
-        <div class="service">
-          <div class="icon bg-danger-light">
-            <mat-icon class="material-icons-sharp danger">medication</mat-icon>
-          </div>
-          <div class="details">
-            <h4>Pharmacy</h4>
-            <p>10.08.2023</p>
-          </div>
-        </div>
-        <div class="card-details">
-          <div class="card bg-primary">
-            <img src="./assets/visa.png">
-          </div>
-          <div class="details">
-            <p>*1920</p>
-            <small class="text-muted">Credit Card</small>
-          </div>
-        </div>
-        <h4>-$30</h4>
-      </div>
-      <!-- END OF TRANSACTION -->
-      <div class="transaction">
-        <div class="service">
-          <div class="icon bg-success-light">
-            <mat-icon class="material-icons-sharp success">fitness_center</mat-icon>
-          </div>
-          <div class="details">
-            <h4>Fitness</h4>
-            <p>29.07.2023</p>
-          </div>
-        </div>
-        <div class="card-details">
-          <div class="card bg-dark">
-            <img src="./assets/master%20card.png">
-          </div>
-          <div class="details">
-            <p>*8273</p>
-            <small class="text-muted">Master Card</small>
-          </div>
-        </div>
-        <h4>-$45</h4>
+        <h4>{{ transaction.amount }}</h4>
       </div>
       <!-- END OF TRANSACTION -->
     </div>
     <!-- END OF RECENT TRANSACTIONS -->
-
   </section>
   <!-- END OF RIGHT -->
 </main>

@@ -2,7 +2,6 @@
 
 <main>
   <app-sidebar></app-sidebar>
-
   <section class="middle">
     <div class="recent-orders">
       <div class="header">
@@ -21,283 +20,37 @@
           <th></th>
         </tr>
         </thead>
+
+
         <tbody>
-
-        <tr class="transaction">
+        <tr *ngFor="let transaction of transactions" class="transaction">
           <td>
-            <div class="icon bg-purple-light">
-              <mat-icon class="material-icons-sharp purple">headset_mic</mat-icon>
+            <div [ngClass]="transaction.iconClass">
+              <mat-icon class="material-icons-sharp">{{ transaction.iconName }}</mat-icon>
             </div>
           </td>
-          <td>Music</td>
-          <td>TRXID987654321</td>
-          <td>-$20</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-danger">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*2757</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>20.11.2021</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-purple-light">
-              <mat-icon class="material-icons-sharp purple">shopping_bag</mat-icon>
-            </div>
-          </td>
-          <td>Shopping</td>
-          <td>TRXID123456789</td>
-          <td>-$799</td>
+          <td>{{ transaction.category }}</td>
+          <td>{{ transaction.trxId }}</td>
+          <td>{{ transaction.amount }}</td>
           <td>
             <div class="card-details">
-              <div class="card bg-primary">
-                <img src="./assets/visa.png">
+              <div
+                [ngClass]="transaction.cardType === 'Credit Card Blue' ? 'card bg-primary' : (transaction.cardType === 'Credit Card Red' ? 'card bg-danger' : 'card bg-dark')">
+                <img [src]="transaction.cardImageSrc">
               </div>
               <div class="details">
-                <p>*1920</p>
-                <small class="text-muted">Credit Card</small>
+                <p>{{ transaction.cardNumber }}</p>
+                <small class="text-muted">{{ transaction.cardName }}</small>
               </div>
             </div>
           </td>
-          <td>10.09.2023</td>
-          <td class="status-pending">Pending</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-success-light">
-              <mat-icon class="material-icons-sharp success">restaurant</mat-icon>
-            </div>
-          </td>
-          <td>Restaurant</td>
-          <td>TRXID543210987</td>
-          <td>-$50</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-dark">
-                <img src="./assets/master%20card.png">
-              </div>
-              <div class="details">
-                <p>*8273</p>
-                <small class="text-muted">Master Card</small>
-              </div>
-            </div>
-          </td>
-          <td>19.08.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-danger-light">
-              <mat-icon class="material-icons-sharp danger">sports_esports</mat-icon>
-            </div>
-          </td>
-          <td>Games</td>
-          <td>TRXID876543210</td>
-          <td>-$44</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-danger">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*2757</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>15.08.2023</td>
-          <td class="status-canceled">Canceled</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-danger-light">
-              <mat-icon class="material-icons-sharp danger">medication</mat-icon>
-            </div>
-          </td>
-          <td>Pharmacy</td>
-          <td>TRXID246813579</td>
-          <td>-$30</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-primary">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*1920</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>10.08.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-success-light">
-              <mat-icon class="material-icons-sharp success">fitness_center</mat-icon>
-            </div>
-          </td>
-          <td>Fitness</td>
-          <td>TRXID135792468</td>
-          <td>-$45</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-dark">
-                <img src="./assets/master%20card.png">
-              </div>
-              <div class="details">
-                <p>*8273</p>
-                <small class="text-muted">Master Card</small>
-              </div>
-            </div>
-          </td>
-          <td>29.07.2023</td>
-          <td class="status-pending">Pending</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-dark-light">
-              <mat-icon class="material-icons-sharp danger">directions_bike</mat-icon>
-            </div>
-          </td>
-          <td>Sports</td>
-          <td>TRXID555444333</td>
-          <td>-$1643</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-dark">
-                <img src="./assets/master%20card.png">
-              </div>
-              <div class="details">
-                <p>*8273</p>
-                <small class="text-muted">Master Card</small>
-              </div>
-            </div>
-          </td>
-          <td>20.07.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-purple-light">
-              <mat-icon class="material-icons-sharp purple">shopping_bag</mat-icon>
-            </div>
-          </td>
-          <td>Shopping</td>
-          <td>TRXID123456789</td>
-          <td>-$263</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-primary">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*1920</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>15.07.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-dark-light">
-              <mat-icon class="material-icons-sharp danger">golf_course</mat-icon>
-            </div>
-          </td>
-          <td>Sports</td>
-          <td>TRXID222111000</td>
-          <td>-$52</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-danger">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*2757</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>10.07.2023</td>
-          <td class="status-canceled">Canceled</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-success-light">
-              <mat-icon class="material-icons-sharp success">directions_car</mat-icon>
-            </div>
-          </td>
-          <td>Car Repair</td>
-          <td>TRXID999000111</td>
-          <td>-$3015</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-dark">
-                <img src="./assets/master%20card.png">
-              </div>
-              <div class="details">
-                <p>*8273</p>
-                <small class="text-muted">Master Card</small>
-              </div>
-            </div>
-          </td>
-          <td>28.06.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
-        </tr>
-
-        <tr class="transaction">
-          <td>
-            <div class="icon bg-danger-light">
-              <mat-icon class="material-icons-sharp danger">medication</mat-icon>
-            </div>
-          </td>
-          <td>Pharmacy</td>
-          <td>TRXID888111222</td>
-          <td>-$5</td>
-          <td>
-            <div class="card-details">
-              <div class="card bg-primary">
-                <img src="./assets/visa.png">
-              </div>
-              <div class="details">
-                <p>*1920</p>
-                <small class="text-muted">Credit Card</small>
-              </div>
-            </div>
-          </td>
-          <td>20.06.2023</td>
-          <td class="status-complete">Complete</td>
-          <td class="details">Details</td>
+          <td>{{ transaction.date }}</td>
+          <td
+            [ngClass]="transaction.status === 'Complete' ? 'status-complete' : (transaction.status === 'Pending' ? 'status-pending' : 'status-canceled')">{{ transaction.status }}</td>
+          <td class="details">{{ transaction.details }}</td>
         </tr>
         </tbody>
+
       </table>
       <a href="/transactions">Show All</a>
     </div>
@@ -411,7 +164,5 @@
     <!-- END CARDS -->
 
   </section>
-
-
 </main>
 

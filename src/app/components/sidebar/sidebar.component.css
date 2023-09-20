@@ -1,16 +1,9 @@
-main {
-  display: grid;
-  grid-template-columns: 16rem auto 30rem;
-  gap: 2rem;
-  width: 96%;
-  margin: 1rem auto 4rem;
-}
 
 main aside {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 88vh;
+  height: 100%;
 }
 
 /* Will be shown only on mobile and tablets */
@@ -22,9 +15,13 @@ main aside .sidebar a {
   display: flex;
   align-items: center;
   gap: 1.2rem;
-  height: 4.2rem;
+  height: 5.3rem;
   color: var(--color-gray-light);
   position: relative;
+}
+
+main aside .sidebar a h4 {
+  font-weight: 600;
 }
 
 main aside .sidebar a mat-icon {
@@ -57,41 +54,4 @@ main aside .sidebar a:hover mat-icon {
 main aside .sidebar h4 {
   margin-top: 14px;
   font-weight: 500;
-}
-
-main aside .updates {
-  background: var(--color-white);
-  border-radius: var(--border-radius-1);
-  text-align: center;
-  padding: var(--card-padding);
-}
-
-
-main aside .updates mat-icon {
-  font-size: 2.2rem;
-}
-
-main aside .updates h4 {
-  margin: 1rem 0;
-  font-weight: 600;
-}
-
-main aside .updates p {
-  margin: 0;
-  font-size: 1rem;
-}
-
-main aside .updates a {
-  display: block;
-  width: 100%;
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-radius: var(--border-radius-1);
-  padding: 0.8rem 0;
-  margin-top: 2rem;
-  transition: all 300ms ease;
-}
-
-main aside .updates a:hover {
-  box-shadow: 0 1rem 2rem var(--color-primary-light);
 }
