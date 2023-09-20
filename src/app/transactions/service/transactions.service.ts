@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
-import {Transaction} from './transactions.model';
+import {Transaction} from '../../models/transactions.model';
+import {Card} from "../../models/card.model";
+import {WalletService} from "../../wallet/service/wallet.service";
 
 @Injectable({
   providedIn: 'root',
@@ -19,11 +21,15 @@ export class TransactionsService {
     { iconClass: "icon bg-danger-light", iconName: "medication", category: "Pharmacy", trxId: "TRXID888111222", amount: "-$5", cardType: "Credit Card Blue", cardName: "Credit Card", cardImageSrc: "./assets/visa.png", cardNumber: "*1920", date: "20.06.2023", status: "Complete", details: "Details",},
   ];
 
-  constructor() {
+  constructor(private walletService: WalletService) {
   }
 
   getAllTransactions(): Transaction[] {
     return this.transactions;
+  }
+
+  getAllCards(): Card[] {
+    return this.walletService.getAllCards();
   }
 
   getFirstSixTransactions(): Transaction[] {

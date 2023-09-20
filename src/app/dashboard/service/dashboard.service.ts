@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {Transaction} from "../transactions/transactions.model";
-import {TransactionsService} from "../transactions/transactions.service";
-import {Investment} from "./investment.model";
-
+import {Transaction} from "../../models/transactions.model";
+import {TransactionsService} from "../../transactions/service/transactions.service";
+import {Investment} from "../../models/investment.model";
+import {Card} from "../../models/card.model";
+import {WalletService} from "../../wallet/service/wallet.service";
 
 @Injectable({
   providedIn: 'root',
@@ -15,10 +16,14 @@ export class DashboardService {
     { companyName: 'McDonalds', imageSrc: './assets/mcdonalds.png', date: '3 Dec, 2021', time: '8:17pm', bonds: "5200", amount: "$78,030", changePercentage: -1.02,},
   ];
 
-  constructor(private transactionService: TransactionsService) {}
+  constructor(private transactionService: TransactionsService, private walletService: WalletService) {}
 
   getAllInvestments(): Investment[] {
     return this.investments;
+  }
+
+  getAllCards(): Card[] {
+    return this.walletService.getAllCards();
   }
 
   getFirstSixTransactions(): Transaction[] {

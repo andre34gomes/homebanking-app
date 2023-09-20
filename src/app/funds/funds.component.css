@@ -1,0 +1,178 @@
+/* =============== Deposit/Withdraw ===============*/
+
+.depositWithdraw {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.depositWithdraw > div {
+  background: var(--color-white);
+  padding: var(--card-padding);
+  border-radius: var(--card-border-radius);
+  margin-top: 3rem;
+  box-shadow: var(--box-shadow);
+  transition: all 300ms ease;
+}
+
+.depositWithdraw > div:hover {
+  box-shadow: none;
+}
+
+.depositWithdraw > div mat-icon {
+  padding: 7px 33px 33px 7px;
+  border-radius: 50%;
+  color: var(--color-white);
+  font-size: 2.2rem;
+}
+
+.depositWithdraw > div.deposit .deposit-icon mat-icon {
+  background: var(--color-success);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.depositWithdraw > div.withdraw .withdraw-icon mat-icon {
+  background: var(--color-danger);
+}
+
+
+.depositWithdraw > div .middle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.depositWithdraw h3 {
+  margin: 1rem 0 0.6rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.depositWithdraw h1 {
+  font-weight: 600;
+}
+
+.depositWithdraw svg {
+  width: 8rem;
+  height: 8rem;
+}
+
+.depositWithdraw small {
+  margin-top: 1.3rem;
+  display: block;
+}
+
+/* ================ DROPDOWN MENU ================ */
+
+.depositWithdraw img {
+  width: 2.3rem;
+  height: 2.3rem;
+  border: 1px solid black;
+  background: black;
+  border-radius: var(--border-radius-2);
+  padding: 0.4rem;
+}
+
+.select-menu-deposit,
+.select-menu-withdraw {
+  width: 230px;
+}
+
+.select-menu-deposit .select-btn-deposit,
+.select-menu-withdraw .select-btn-withdraw {
+  display: flex;
+  height: 55px;
+  background: white;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 400;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.select-menu-deposit .select-btn-deposit mat-icon,
+.select-menu-withdraw .select-btn-withdraw mat-icon {
+  font-size: 25px;
+  color: black;
+  transition: 0.3s;
+}
+
+.select-menu-deposit.active .select-btn-deposit mat-icon,
+.select-menu-withdraw.active .select-btn-withdraw mat-icon {
+  transform: rotate(-180deg);
+}
+
+.select-menu-deposit .options,
+.select-menu-withdraw .options {
+  position: relative;
+  margin-top: 2px;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.select-menu-deposit.active .options,
+.select-menu-withdraw.active .options {
+  display: block;
+}
+
+.options .option {
+  display: flex;
+  height: 45px;
+  cursor: pointer;
+  padding: 0 16px;
+  border-radius: 8px;
+  align-items: center;
+  background: white;
+}
+
+.options .option:hover {
+  background: #f2f2f2;
+}
+
+.options .option mat-icon {
+  font-size: 25px;
+  margin-right: 12px;
+}
+
+.options .option .option-text {
+  margin-left: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* ================ AMOUNT TEXTAREA ================ */
+
+.amount-deposit,
+.amount-withdraw {
+  margin-top: 20px;
+  width: 120px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.deposit button,
+.withdraw button {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+  color: var(--color-white);
+}

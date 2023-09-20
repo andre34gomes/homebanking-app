@@ -13,7 +13,7 @@ import {TransactionsComponent} from './transactions/transactions.component';
 import {FundsComponent} from './funds/funds.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { WalletComponent } from './wallet/wallet.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { MessagesComponent } from './messages/messages.component';
@@ -44,7 +44,8 @@ import { SettingsComponent } from './settings/settings.component';
         NgOptimizedImage,
         MaterialModule,
         BrowserAnimationsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

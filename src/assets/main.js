@@ -14,14 +14,26 @@ document.addEventListener("DOMContentLoaded", function () {
   })
 
 
-//change theme
-  const themeBtn = document.querySelector('.theme-btn');
+// Function to set the theme based on user preference
+  function setTheme(theme) {
+    document.body.classList.toggle('dark-theme', theme === 'dark');
+  }
 
-  themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    themeBtn.querySelector('span:first-child').classList.toggle('active');
-    themeBtn.querySelector('span:last-child').classList.toggle('active');
-  })
+// Function to toggle the theme and save the preference
+  function toggleTheme() {
+    const isDarkMode = document.body.classList.contains('dark-theme');
+    const newTheme = isDarkMode ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme); // Store the preference in localStorage
+  }
+
+// Initialize theme based on user preference or default to light mode
+  const storedTheme = localStorage.getItem('theme');
+  setTheme(storedTheme || 'light');
+
+// Add event listener to the theme button
+  const themeBtn = document.querySelector('.theme-btn');
+  themeBtn.addEventListener('click', toggleTheme);
 
   //change page
 // Get all sidebar links
@@ -60,4 +72,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Call the function to set the active link based on the current URL when the page loads
   window.addEventListener('load', setActiveLinkBasedOnURL);
+
+  /* ================ FUNDS ================ */
+
+  const optionMenuDeposit = document.querySelector(".select-menu-deposit"),
+    selectBtnDeposit = optionMenuDeposit.querySelector(".select-btn-deposit"),
+    optionsDeposit = optionMenuDeposit.querySelectorAll(".option"),
+    sBtn_textDeposit = optionMenuDeposit.querySelector(".sBtn-text-deposit");
+
+  selectBtnDeposit.addEventListener("click", () => optionMenuDeposit.classList.toggle("active"));
+
+  optionsDeposit.forEach(option => {
+    option.addEventListener("click", () => {
+      sBtn_textDeposit.innerText = option.querySelector(".option-text").innerText;
+
+      optionMenuDeposit.classList.remove("active");
+    })
+  });
+
+
+  const optionMenuWithdraw = document.querySelector(".select-menu-withdraw"),
+    selectBtnWithdraw = optionMenuWithdraw.querySelector(".select-btn-withdraw"),
+    optionsWithdraw = optionMenuWithdraw.querySelectorAll(".option"),
+    sBtn_textWithdraw = optionMenuWithdraw.querySelector(".sBtn-text-withdraw");
+
+  selectBtnWithdraw.addEventListener("click", () => optionMenuWithdraw.classList.toggle("active"));
+
+  optionsWithdraw.forEach(option => {
+    option.addEventListener("click", () => {
+      sBtn_textWithdraw.innerText = option.querySelector(".option-text").innerText;
+      optionMenuWithdraw.classList.remove("active");
+    })
+  });
+
+
 });
+
+
+
+
