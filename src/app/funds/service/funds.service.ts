@@ -17,4 +17,14 @@ export class FundsService {
   getFirstSixTransactions(): Transaction[] {
     return this.transactionService.getFirstSixTransactions();
   }
+
+  depositValue(selectedOption: string, amount: number){
+    this.walletService.depositFunds(selectedOption, amount);
+    //this.transactionService.addTransaction(new Transaction());
+  }
+
+  withdrawValue(selectedOption: string, amount: number){
+    this.walletService.withdrawFunds(selectedOption, amount);
+    //this.transactionService.addTransaction(new Transaction());
+  }
 }

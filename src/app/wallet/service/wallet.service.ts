@@ -1,19 +1,43 @@
 import { Injectable } from '@angular/core';
-import {Card} from "../../models/card.model";
+import {Card, cards} from "../../models/card.model";
 
 @Injectable({
   providedIn: 'root',
 })
 export class WalletService {
-  cards: Card[] = [
-    { name: 'BTC', imageSrc: './assets/BTC.png', cardImageSrc: './assets/visa.png', amount: "$827,199", cardHolder: 'JOHN DOE', expiry: '08/24', cvv: '***',},
-    { name: 'ETH', imageSrc: './assets/ETH.png', cardImageSrc: './assets/master%20card.png', amount: "$95,623", cardHolder: 'JOHN DOE', expiry: '08/24', cvv: '***',},
-    { name: 'ADA', imageSrc: './assets/ADA.png', cardImageSrc: './assets/visa.png', amount: "$74,384", cardHolder: 'JOHN DOE', expiry: '08/24', cvv: '***',},
-  ];
+  cards: Card[] = cards;
 
   constructor() {}
 
   getAllCards(): Card[] {
     return this.cards;
+  }
+
+  depositFunds(selectedOption: string, amount: number) {
+    const card = this.cards.find((card) => card.name === selectedOption);
+
+    if (card) {
+      // Add the deposit amount to the card's balance
+      // @ts-ignore
+      card.amount += amount;
+    }
+  }
+
+  withdrawFunds(selectedOption: string, amount: number) {
+    const card = this.cards.find((card) => card.name === selectedOption);
+
+    if (card) {
+      // Ensure that the withdrawal amount does not exceed the current balance
+      // @ts-ignore
+      if (amount <= card.amount) {
+        // Subtract the withdrawal amount from the card's balance
+        console.log(amount);
+        console.log(card.amount);
+        // @ts-ignore
+        card.amount -= amount;
+      } else {
+        console.error('Insufficient funds for withdrawal.');
+      }
+    }
   }
 }

@@ -18,7 +18,7 @@
           <img [src]="card.cardImageSrc" class="right">
         </div>
         <div class="middle">
-          <h1>{{ card.amount }}</h1>
+          <h1>${{ card.amount }}</h1>
           <div class="chip">
             <img src="./assets/card%20chip.png">
           </div>
@@ -49,10 +49,10 @@
         <h3>Income</h3>
         <div>
           <details>
-            <h1>$29,023</h1>
+            <h1>$29.023</h1>
             <h6 class="success">+3.5%</h6>
           </details>
-          <p class="text-muted">Compared to $26,938 last month</p>
+          <p class="text-muted">Compared to $26.938 last month</p>
         </div>
       </div>
 
@@ -62,10 +62,10 @@
         <h3>Expenses</h3>
         <div>
           <details>
-            <h1>$9,005</h1>
+            <h1>$9.005</h1>
             <h6 class="danger">-6.5%</h6>
           </details>
-          <p class="text-muted">Compared to 11,912 last month</p>
+          <p class="text-muted">Compared to 11.912 last month</p>
         </div>
       </div>
 
@@ -75,10 +75,10 @@
         <h3>Cashback</h3>
         <div>
           <details>
-            <h1>$9,004</h1>
-            <h6 class="success">+7,1%</h6>
+            <h1>$3.240</h1>
+            <h6 class="success">+7.1%</h6>
           </details>
-          <p class="text-muted">Compared to $3,028 last month</p>
+          <p class="text-muted">Compared to $3.028 last month</p>
         </div>
       </div>
 
@@ -88,10 +88,10 @@
         <h3>Turnover</h3>
         <div>
           <details>
-            <h1>118,224</h1>
+            <h1>$93.901</h1>
             <h6 class="danger">-17.8%</h6>
           </details>
-          <p class="text-muted">Compared to $114,234 last month</p>
+          <p class="text-muted">Compared to $114.234 last month</p>
         </div>
       </div>
 
@@ -175,7 +175,7 @@
         <div class="middle">
           <div class="left">
             <h3>Total Income</h3>
-            <h1>$25,024</h1>
+            <h1>$25.024</h1>
           </div>
           <div class="progress">
             <svg>
@@ -195,7 +195,7 @@
         <div class="middle">
           <div class="left">
             <h3>Total Expenses</h3>
-            <h1>$14,160</h1>
+            <h1>$14.160</h1>
           </div>
           <div class="progress">
             <svg>
@@ -215,7 +215,7 @@
         <div class="middle">
           <div class="left">
             <h3>Financial Overview</h3>
-            <h1>$10,864</h1>
+            <h1>$10.864</h1>
           </div>
           <div class="progress">
             <svg>
@@ -256,7 +256,7 @@
           <small class="text-muted">Bonds</small>
         </div>
         <div class="amount">
-          <h4>{{ investment.amount }}</h4>
+          <h4>${{ investment.amount }}</h4>
           <small
             class="{{ investment.changePercentage ? (investment.changePercentage > 0 ? 'success' : 'danger') : '' }}">
             {{ (investment.changePercentage ? (investment.changePercentage > 0 ? '+' : '') : '') + investment.changePercentage }}

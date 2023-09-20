@@ -104,8 +104,6 @@ document.addEventListener("DOMContentLoaded", function () {
       optionMenuWithdraw.classList.remove("active");
     })
   });
-
-
 });
 
 

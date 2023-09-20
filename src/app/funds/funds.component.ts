@@ -30,6 +30,7 @@ export class FundsComponent implements OnInit {
       // Perform the deposit action here
       console.log('Option: ' + this.selectedOptionDeposit);
       console.log('Amount: ' + this.amountDeposit);
+      this.fundsService.depositValue(this.selectedOptionDeposit, this.amountDeposit);
     } else {
       // Show an error message or handle invalid input
       console.log('Please select an option and enter an amount.');
@@ -42,6 +43,7 @@ export class FundsComponent implements OnInit {
       // Perform the deposit action here
       console.log('Option: ' + this.selectedOptionWithdraw);
       console.log('Amount: ' + this.amountWithdraw);
+      this.fundsService.withdrawValue(this.selectedOptionWithdraw, this.amountWithdraw);
     } else {
       // Show an error message or handle invalid input
       console.log('Please select an option and enter an amount.');
