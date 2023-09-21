@@ -7,9 +7,11 @@ import {WalletService} from "../../wallet/service/wallet.service";
   providedIn: 'root',
 })
 export class TransactionsService {
-  transactions: Transaction[] = transactions;
+  transactions: Transaction[] = [];
+  private readonly localStorageKey = 'transactions';
 
   constructor(private walletService: WalletService) {
+    this.loadTransactionsFromLocalStorage();
   }
 
   getAllTransactions(): Transaction[] {
@@ -25,7 +27,23 @@ export class TransactionsService {
   }
 
   addTransaction(transaction: Transaction): void {
-    // Add the new transaction to the beginning of the array
     this.transactions.unshift(transaction);
+    this.saveTransactionsToLocalStorage();
+  }
+
+  private loadTransactionsFromLocalStorage() {
+    const storedTransactions = localStorage.getItem(this.localStorageKey);
+    if (storedTransactions) {
+      this.transactions = JSON.parse(storedTransactions);
+    } else {
+      // If no data is found in local storage, initialize with the default cards
+      this.transactions = transactions;
+      // Save the default cards to local storage
+      this.saveTransactionsToLocalStorage();
+    }
+  }
+
+  private saveTransactionsToLocalStorage() {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.transactions));
   }
 }

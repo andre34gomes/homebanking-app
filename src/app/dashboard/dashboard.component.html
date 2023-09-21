@@ -18,7 +18,7 @@
           <img [src]="card.cardImageSrc" class="right">
         </div>
         <div class="middle">
-          <h1>${{ card.amount }}</h1>
+          <h1>${{(card.amount / 1000).toFixed(3)}}</h1>
           <div class="chip">
             <img src="./assets/card%20chip.png">
           </div>
@@ -256,7 +256,7 @@
           <small class="text-muted">Bonds</small>
         </div>
         <div class="amount">
-          <h4>${{ investment.amount }}</h4>
+          <h4>${{(investment.amount/1000).toFixed(3)}}</h4>
           <small
             class="{{ investment.changePercentage ? (investment.changePercentage > 0 ? 'success' : 'danger') : '' }}">
             {{ (investment.changePercentage ? (investment.changePercentage > 0 ? '+' : '') : '') + investment.changePercentage }}
@@ -287,7 +287,7 @@
         </div>
         <div class="card-details">
           <div
-            [ngClass]="transaction.cardType === 'Credit Card Blue' ? 'card bg-primary' : (transaction.cardType === 'Credit Card Red' ? 'card bg-danger' : 'card bg-dark')">
+            [ngClass]="transaction.cardType === 'ADA' ? 'card bg-primary' : (transaction.cardType === 'BTC' ? 'card bg-danger' : 'card bg-dark')">
             <img [src]="transaction.cardImageSrc">
           </div>
           <div class="details">

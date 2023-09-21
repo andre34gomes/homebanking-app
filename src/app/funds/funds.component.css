@@ -28,16 +28,11 @@
 
 .depositWithdraw > div.deposit .deposit-icon mat-icon {
   background: var(--color-success);
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
 }
 
 .depositWithdraw > div.withdraw .withdraw-icon mat-icon {
   background: var(--color-danger);
 }
-
 
 .depositWithdraw > div .middle {
   display: flex;

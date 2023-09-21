@@ -9,22 +9,26 @@ import {TransactionsService} from "../../transactions/service/transactions.servi
 })
 export class FundsService {
 
-  constructor(private transactionService: TransactionsService, private walletService: WalletService) {}
+  constructor(private transactionService: TransactionsService, private walletService: WalletService) {
+  }
 
   getAllCards(): Card[] {
     return this.walletService.getAllCards();
   }
+
   getFirstSixTransactions(): Transaction[] {
     return this.transactionService.getFirstSixTransactions();
   }
 
-  depositValue(selectedOption: string, amount: number){
-    this.walletService.depositFunds(selectedOption, amount);
-    //this.transactionService.addTransaction(new Transaction());
+  depositValue(selectedOption: string, amount: number): boolean {
+    return this.walletService.depositFunds(selectedOption, amount);
   }
 
-  withdrawValue(selectedOption: string, amount: number){
-    this.walletService.withdrawFunds(selectedOption, amount);
-    //this.transactionService.addTransaction(new Transaction());
+  withdrawValue(selectedOption: string, amount: number): boolean {
+    return this.walletService.withdrawFunds(selectedOption, amount);
+  }
+
+  createTransaction(transaction: Transaction): void {
+    this.transactionService.addTransaction(transaction);
   }
 }

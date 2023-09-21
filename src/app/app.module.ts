@@ -19,6 +19,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HelpCenterComponent } from './help-center/help-center.component';
 import { SettingsComponent } from './settings/settings.component';
+import { UsersComponent } from './users/users.component';
 
 
 
@@ -36,7 +37,8 @@ import { SettingsComponent } from './settings/settings.component';
     AnalyticsComponent,
     MessagesComponent,
     HelpCenterComponent,
-    SettingsComponent
+    SettingsComponent,
+    UsersComponent
   ],
     imports: [
         BrowserModule,

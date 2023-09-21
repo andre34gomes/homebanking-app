@@ -15,7 +15,7 @@
           <img [src]="card.cardImageSrc" class="right">
         </div>
         <div class="middle">
-          <h1>${{ card.amount }}</h1>
+          <h1>${{(card.amount / 1000).toFixed(3)}}</h1>
           <div class="chip">
             <img src="./assets/card%20chip.png">
           </div>
@@ -83,7 +83,7 @@
         </div>
         <div class="middle">
           <div class="left">
-            <h3>Deposit</h3>
+            <h3>Withdraw</h3>
           </div>
           <div class="select-menu-withdraw">
             <div class="select-btn-withdraw">
@@ -92,7 +92,7 @@
             </div>
             <ul class="options">
               <li class="option" *ngFor="let option of ['BTC', 'ETH', 'ADA']" (click)="selectedOptionWithdraw = option">
-                <img [src]="'./assets/' + option + '.png'" alt="{{ option }} Logo">
+                <img [src]="'./assets/' + option + '.png'">
                 <span class="option-text">{{ option }}</span>
               </li>
             </ul>
@@ -133,7 +133,7 @@
         </div>
         <div class="card-details">
           <div
-            [ngClass]="transaction.cardType === 'Credit Card Blue' ? 'card bg-primary' : (transaction.cardType === 'Credit Card Red' ? 'card bg-danger' : 'card bg-dark')">
+            [ngClass]="transaction.cardType === 'ADA' ? 'card bg-primary' : (transaction.cardType === 'BTC' ? 'card bg-danger' : 'card bg-dark')">
             <img [src]="transaction.cardImageSrc">
           </div>
           <div class="details">

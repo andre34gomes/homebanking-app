@@ -15,7 +15,7 @@ export const investments: Investment[] = [
     date: '7 Nov, 2021',
     time: '9:14pm',
     bonds: '1402',
-    amount: 20.033,
+    amount: 20033,
     changePercentage: -4.27,
   },
   {
@@ -24,7 +24,7 @@ export const investments: Investment[] = [
     date: '1 Dec, 2021',
     time: '11:54am',
     bonds: '5377',
-    amount: 720.110,
+    amount: 720112,
     changePercentage: 38.27,
   },
   {
@@ -33,7 +33,7 @@ export const investments: Investment[] = [
     date: '1 Dec, 2021',
     time: '4:02pm',
     bonds: '700',
-    amount: 13.110,
+    amount: 13175,
     changePercentage: 7.27,
   },
   {
@@ -42,7 +42,7 @@ export const investments: Investment[] = [
     date: '3 Dec, 2021',
     time: '8:17pm',
     bonds: '5200',
-    amount: 78.030,
+    amount: 78045,
     changePercentage: -1.02,
   },
 ];
