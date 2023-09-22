@@ -1,5 +1,12 @@
 # HomebankingApp
 
+## Login Account
+
+`Email`: admin@admin.com
+`Password`: admin
+
+## Angular CLI
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
 
 ## Development server
