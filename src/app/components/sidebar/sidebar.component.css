@@ -1,17 +1,12 @@
-
-main aside {
+aside {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+  margin-top: 1px;
 }
 
-/* Will be shown only on mobile and tablets */
-main aside button#close-btn {
-  display: none;
-}
-
-main aside .sidebar a {
+aside .sidebar a {
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -20,22 +15,22 @@ main aside .sidebar a {
   position: relative;
 }
 
-main aside .sidebar a h4 {
+aside .sidebar a h4 {
   font-weight: 600;
 }
 
-main aside .sidebar a mat-icon {
+aside .sidebar a mat-icon {
   font-size: 1.7rem;
   margin-left: 2.5rem;
   transition: all 300ms ease;
 }
 
-main aside .sidebar a.active {
+aside .sidebar a.active {
   background: var(--color-white);
   color: var(--color-primary);
 }
 
-main aside .sidebar a.active:before {
+aside .sidebar a.active:before {
   content: "";
   width: 6px;
   height: 100%;
@@ -43,15 +38,15 @@ main aside .sidebar a.active:before {
   background: var(--color-primary);
 }
 
-main aside .sidebar a:hover {
+aside .sidebar a:hover {
   color: var(--color-primary);
 }
 
-main aside .sidebar a:hover mat-icon {
+aside .sidebar a:hover mat-icon {
   margin-left: 1.5rem;
 }
 
-main aside .sidebar h4 {
+aside .sidebar h4 {
   margin-top: 14px;
   font-weight: 500;
 }

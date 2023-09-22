@@ -169,7 +169,6 @@ small {
 
 /* =================== Main =================== */
 
-
 main {
   display: grid;
   grid-template-columns: 16rem auto 30rem;
@@ -177,6 +176,8 @@ main {
   width: 96%;
   margin: 1rem auto 4rem;
 }
+
+/* =================== Middle Section =================== */
 
 main section.middle .header {
   display: flex;
@@ -190,7 +191,7 @@ main section.middle .header h1 {
 }
 
 
-/* =================== CARDS MIDDLE =================== */
+/* =================== Middle Section Cards =================== */
 
 main section.middle .cards {
   margin-top: 1rem;
@@ -279,7 +280,7 @@ main section.middle .card .bottom .right {
   gap: 2rem;
 }
 
-/* =============== CARDS RIGHT ===============*/
+/* =================== Right Section Cards =================== */
 
 main section.right .header {
   display: flex;

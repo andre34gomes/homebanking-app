@@ -1,13 +1,15 @@
+// Define an interface named 'Card' to specify the structure of a card object
 export interface Card {
-  name: string;
-  imageSrc: string;
-  cardImageSrc: string;
-  amount: number;
-  cardHolder: string;
-  expiry: string;
-  cvv: string;
+  name: string;         // The card's name, e.g., BTC, ETH, ADA
+  imageSrc: string;     // The path to an image representing the card
+  cardImageSrc: string; // The path to an image representing the card type (e.g., Visa, MasterCard)
+  amount: number;       // The card's current balance or amount
+  cardHolder: string;   // The cardholder's name
+  expiry: string;       // The card's expiry date
+  cvv: string;          // The card's CVV (Card Verification Value)
 }
 
+// Define an array 'cards' containing a list of card objects
 export const cards: Card[] = [
   {
     name: 'BTC',

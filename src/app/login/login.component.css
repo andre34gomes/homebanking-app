@@ -6,11 +6,15 @@ section {
   height: 100vh;
   background: url("/assets/bg.jpg") no-repeat center;
   background-size: cover;
+  /* Apply an animation named "animateBg" with a duration of 5 seconds and linear timing, repeating infinitely */
   animation: animateBg 5s linear infinite;
 }
 
+/* Define a keyframes animation named "animateBg" */
 @keyframes animateBg {
+  /* At the 100% keyframe (end of the animation) */
   100% {
+    /* Apply a hue rotation effect of 360 degrees to the background */
     filter: hue-rotate(360deg);
   }
 }
@@ -131,7 +135,3 @@ button:disabled {
 .register-link p a:hover {
   text-decoration: underline;
 }
-
-
-
-

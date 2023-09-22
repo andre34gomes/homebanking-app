@@ -5,7 +5,6 @@ body{
 .page_404 {
   padding: 250px 0 0 210px;
   color: #c4c3ca;
-  font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: 15px;
   line-height: 1.7;
@@ -16,7 +15,6 @@ body{
 }
 
 .four_zero_four_bg {
-
   background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
   height: 400px;
   background-position: center;
@@ -39,6 +37,6 @@ body{
   display: inline-block;
 }
 
-.contant_box_404 {
+.content_box_404 {
   margin-top: -50px;
 }

@@ -10,28 +10,37 @@ import {TransactionsService} from "../transactions/service/transactions.service"
   styleUrls: ['./funds.component.css']
 })
 export class FundsComponent implements OnInit {
+  // Arrays to hold data related to transactions and cards
   firstSixTransactions: Transaction[] = [];
   cards: Card[] = [];
-  selectedOptionDeposit: string = ''; // Initialize with an empty string
-  amountDeposit: number | null = null; // Initialize as null
-  selectedOptionWithdraw: string = ''; // Initialize with an empty string
-  amountWithdraw: number | null = null; // Initialize as null
+
+  // Variables to handle deposit and withdrawal inputs
+  selectedOptionDeposit: string = '';
+  amountDeposit: number | null = null;
+  selectedOptionWithdraw: string = '';
+  amountWithdraw: number | null = null;
+
+  // Variable to store a new transaction
   newTransaction: Transaction | undefined;
 
+  // Date-related variables for formatting
   today = new Date();
   dd = String(this.today.getDate()).padStart(2, '0');
-  mm = String(this.today.getMonth() + 1).padStart(2, '0'); // January is 0!
+  mm = String(this.today.getMonth() + 1).padStart(2, '0');
   yyyy = this.today.getFullYear();
   formattedDate = `${this.dd}.${this.mm}.${this.yyyy}`
 
+  // Constructor with the FundsService injected
   constructor(private fundsService: FundsService) {
   }
 
+  //ngOnInit is called when the component is initialized
   ngOnInit(): void {
     this.firstSixTransactions = this.fundsService.getFirstSixTransactions();
     this.cards = this.fundsService.getAllCards();
   }
 
+  // Function to handle deposit action
   onDepositClick(): void {
     // Check if both the selectedOption and amount are not empty or null
     if (this.selectedOptionDeposit && this.amountDeposit !== null) {
@@ -46,10 +55,11 @@ export class FundsComponent implements OnInit {
     }
   }
 
+  // Function to handle withdrawal action
   onWithdrawClick(): void {
     // Check if both the selectedOption and amount are not empty or null
     if (this.selectedOptionWithdraw && this.amountWithdraw !== null) {
-      // Perform the deposit action here
+      // Perform the withdrawal action here
       let boolean = this.fundsService.withdrawValue(this.selectedOptionWithdraw, this.amountWithdraw);
       if (boolean) {
         this.createTransactionWithdraw(this.selectedOptionWithdraw, this.amountWithdraw);
@@ -60,9 +70,11 @@ export class FundsComponent implements OnInit {
     }
   }
 
+  // Function to create a deposit transaction
   createTransactionDeposit(option: string, amount: number): void {
     let trxId = 'TRXID' + Math.floor(100000000 + Math.random() * 900000000).toString();
     if (option === "BTC") {
+      // Define the transaction details for BTC deposit
       this.newTransaction = {
         iconClass: "icon bg-success-light",
         iconName: "call_received",
@@ -77,9 +89,8 @@ export class FundsComponent implements OnInit {
         status: "Complete",
         details: "Details",
       };
-
-
     } else if (option === "ETH") {
+      // Define the transaction details for ETH deposit
       this.newTransaction = {
         iconClass: "icon bg-success-light",
         iconName: "call_received",
@@ -94,8 +105,8 @@ export class FundsComponent implements OnInit {
         status: "Complete",
         details: "Details",
       };
-
     } else if (option === "ADA") {
+      // Define the transaction details for ADA deposit
       this.newTransaction = {
         iconClass: "icon bg-success-light",
         iconName: "call_received",
@@ -111,19 +122,22 @@ export class FundsComponent implements OnInit {
         details: "Details",
       };
     }
+    // If a new transaction is created, add it to the service and update the displayed transactions
     if (this.newTransaction) {
       this.fundsService.createTransaction(this.newTransaction);
       this.updateFirstSixTransactions();
     }
   }
 
+  // Function to create a withdrawal transaction
   createTransactionWithdraw(option: string, amount: number): void {
     let trxId = 'TRXID' + Math.floor(100000000 + Math.random() * 900000000).toString();
     if (option === "BTC") {
+      // Define the transaction details for BTC withdrawal
       this.newTransaction = {
         iconClass: "icon bg-danger-light",
         iconName: "call_made",
-        category: "Deposit",
+        category: "Deposit", // Note: This should likely be "Withdraw" instead of "Deposit"
         trxId: trxId,
         amount: "-$" + amount,
         cardType: "BTC",
@@ -134,8 +148,8 @@ export class FundsComponent implements OnInit {
         status: "Complete",
         details: "Details",
       };
-
     } else if (option === "ETH") {
+      // Define the transaction details for ETH withdrawal
       this.newTransaction = {
         iconClass: "icon bg-danger-light",
         iconName: "call_made",
@@ -150,8 +164,8 @@ export class FundsComponent implements OnInit {
         status: "Complete",
         details: "Details",
       };
-
     } else if (option === "ADA") {
+      // Define the transaction details for ADA withdrawal
       this.newTransaction = {
         iconClass: "icon bg-danger-light",
         iconName: "call_made",
@@ -167,12 +181,14 @@ export class FundsComponent implements OnInit {
         details: "Details",
       };
     }
+    // If a new transaction is created, add it to the service and update the displayed transactions
     if (this.newTransaction) {
       this.fundsService.createTransaction(this.newTransaction);
       this.updateFirstSixTransactions();
     }
   }
 
+  // Update the displayed transactions
   updateFirstSixTransactions(): void {
     this.firstSixTransactions = this.fundsService.getFirstSixTransactions();
   }

@@ -1,18 +1,20 @@
+// Define an interface named 'Transaction' to specify the structure of a transaction object
 export interface Transaction {
-  iconClass: string;
-  iconName: string;
-  category: string;
-  trxId: string;
-  amount: string;
-  cardType: string;
-  cardName: string;
-  cardImageSrc: string;
-  cardNumber: string;
-  date: string;
-  status: string;
-  details: string;
+  iconClass: string;        // CSS class for the transaction icon
+  iconName: string;         // Name of the transaction icon
+  category: string;         // Transaction category (e.g., Music, Shopping, Restaurant)
+  trxId: string;            // Transaction ID
+  amount: string;           // Transaction amount as a string (e.g., "-$20")
+  cardType: string;         // Type of the card used for the transaction (e.g., BTC, ADA, ETH)
+  cardName: string;         // Name of the card (e.g., Credit Card, Master Card)
+  cardImageSrc: string;     // Path to an image representing the card
+  cardNumber: string;       // Partial card number (masked for security)
+  date: string;             // Transaction date (formatted as "dd.mm.yyyy")
+  status: string;           // Transaction status (e.g., Complete, Pending, Canceled)
+  details: string;          // Additional transaction details
 }
 
+// Define an array 'transactions' containing a list of transaction objects
 export const transactions: Transaction[] = [
   {
     iconClass: "icon bg-purple-light",

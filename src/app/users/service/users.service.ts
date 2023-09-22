@@ -5,33 +5,32 @@ import {User, users} from "../../models/user.model";
   providedIn: 'root',
 })
 export class UsersService {
-  users: User[] = [];
-  private readonly localStorageKey = 'users';
+  users: User[] = []; // An array to store user objects
+  private readonly localStorageKey = 'users'; // A key for storing user data in local storage
 
   constructor() {
-    this.loadUsersFromLocalStorage();
+    this.loadUsersFromLocalStorage(); // Load users from local storage when the service is constructed
   }
 
-  getAllUsers(): User[] {
-    return this.users;
-  }
-
+  // Load user data from local storage or initialize with default users
   private loadUsersFromLocalStorage() {
     const storedUsers = localStorage.getItem(this.localStorageKey);
     if (storedUsers) {
       this.users = JSON.parse(storedUsers);
     } else {
-      // If no data is found in local storage, initialize with the default cards
+      // If no data is found in local storage, initialize with the default users
       this.users = users;
-      // Save the default cards to local storage
+      // Save the default users to local storage
       this.saveUserstoLocalStorage();
     }
   }
 
+  // Save user data to local storage
   private saveUserstoLocalStorage() {
     localStorage.setItem(this.localStorageKey, JSON.stringify(this.users));
   }
 
+  // Attempt to log in a user by checking their email and password
   loginUser(email: string, password: string): User | null {
     // Find a user with the matching email and password
     const user = this.users.find((u) => u.email === email && u.password === password);

@@ -5,18 +5,20 @@ import {Card, cards} from "../../models/card.model";
   providedIn: 'root',
 })
 export class WalletService {
-  cards: Card[] = [];
-  private readonly localStorageKey = 'cards';
+  cards: Card[] = []; // An array to store card objects
+  private readonly localStorageKey = 'cards'; // A key for storing card data in local storage
 
   constructor() {
-    this.loadCardsFromLocalStorage();
+    this.loadCardsFromLocalStorage(); // Load cards from local storage when the service is constructed
   }
 
+  // Retrieve all card data
   getAllCards(): Card[] {
     return this.cards;
   }
 
-  depositFunds(selectedOption: string, amount: number):boolean {
+  // Deposit funds into a card and update its balance
+  depositFunds(selectedOption: string, amount: number): boolean {
     const card = this.cards.find((card) => card.name === selectedOption);
 
     if (card) {
@@ -29,6 +31,7 @@ export class WalletService {
     return false;
   }
 
+  // Withdraw funds from a card and update its balance
   withdrawFunds(selectedOption: string, amount: number): boolean {
     const card = this.cards.find((card) => card.name === selectedOption);
 
@@ -48,6 +51,7 @@ export class WalletService {
     return false;
   }
 
+  // Load card data from local storage or initialize with default cards
   private loadCardsFromLocalStorage() {
     const storedCards = localStorage.getItem(this.localStorageKey);
     if (storedCards) {
@@ -60,6 +64,7 @@ export class WalletService {
     }
   }
 
+  // Save card data to local storage
   private saveCardsToLocalStorage() {
     localStorage.setItem(this.localStorageKey, JSON.stringify(this.cards));
   }

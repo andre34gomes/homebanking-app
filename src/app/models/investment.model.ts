@@ -1,13 +1,15 @@
+// Define an interface named 'Investment' to specify the structure of an investment object
 export interface Investment {
-  companyName: string;
-  imageSrc: string;
-  date: string;
-  time: string;
-  bonds: string;
-  amount: number;
-  changePercentage: number;
+  companyName: string;     // The name of the investment company
+  imageSrc: string;        // The path to an image representing the investment
+  date: string;            // The date of the investment
+  time: string;            // The time of the investment
+  bonds: string;           // The number of bonds associated with the investment
+  amount: number;          // The amount invested
+  changePercentage: number; // The percentage change in the investment
 }
 
+// Define an array 'investments' containing a list of investment objects
 export const investments: Investment[] = [
   {
     companyName: 'Unilever',

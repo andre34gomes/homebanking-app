@@ -1,19 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-//show or hide sidebar
-  const menuBtn = document.querySelector("#menu-btn");
-  const closeBtn = document.querySelector("#close-btn");
-  const sidebar = document.querySelector("aside");
-
-  menuBtn.addEventListener('click', () => {
-    sidebar.style.display = 'block';
-  })
-
-  closeBtn.addEventListener('click', () => {
-    sidebar.style.display = 'none';
-  })
-
-
 // Function to set the theme based on user preference
   function setTheme(theme) {
     document.body.classList.toggle('dark-theme', theme === 'dark');
@@ -35,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeBtn = document.querySelector('.theme-btn');
   themeBtn.addEventListener('click', toggleTheme);
 
-  //change page
+//change page
 // Get all sidebar links
   const sidebarLinks = document.querySelectorAll('.sidebar a');
 
